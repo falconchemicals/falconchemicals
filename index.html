@@ -1,0 +1,1676 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Falcon Chemicals | Laboratory & Industrial Chemicals</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --ink: #0f172a;
+            --muted: #64748b;
+            --line: #e2e8f0;
+            --soft: #f8fafc;
+            --panel: #ffffff;
+            --red: #b42318;
+            --red-dark: #7f1d1d;
+            --red-soft: #fff1f0;
+            --navy: #0b1220;
+            --teal: #0f766e;
+            --blue: #1e3a8a;
+            --steel: #334155;
+            --amber: #b45309;
+            --shadow-sm: 0 1px 2px rgba(15, 23, 42, 0.06);
+            --shadow: 0 12px 30px rgba(15, 23, 42, 0.10);
+            --shadow-xl: 0 24px 60px rgba(15, 23, 42, 0.16);
+            --radius: 12px;
+            --radius-sm: 8px;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: Inter, Arial, sans-serif;
+            color: var(--ink);
+            background: #f6f8fb;
+            line-height: 1.6;
+        }
+        a { color: inherit; text-decoration: none; }
+        button, input, select, textarea { font: inherit; }
+
+        .container {
+            width: min(1280px, calc(100% - 48px));
+            margin: 0 auto;
+        }
+
+        .topbar {
+            background: #020617;
+            color: #cbd5e1;
+            font-size: 0.84rem;
+            font-weight: 600;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .topbar .container {
+            min-height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .topbar-left {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            flex-wrap: wrap;
+        }
+
+        .topbar-item {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .topbar-item svg {
+            width: 14px;
+            height: 14px;
+            opacity: 0.8;
+        }
+
+        .nav-wrap {
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            background: rgba(255, 255, 255, 0.92);
+            border-bottom: 1px solid var(--line);
+            backdrop-filter: blur(20px);
+        }
+
+        .nav {
+            min-height: 74px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 22px;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-weight: 900;
+            white-space: nowrap;
+        }
+
+        .brand-mark {
+            width: 58px;
+            height: 58px;
+            flex: 0 0 auto;
+        }
+
+        .brand-text strong {
+            display: block;
+            font-size: 1.18rem;
+            line-height: 1.1;
+            letter-spacing: 0;
+        }
+
+        .brand-text span {
+            display: block;
+            color: var(--muted);
+            font-size: 0.78rem;
+            font-weight: 700;
+            margin-top: 3px;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #475569;
+            font-size: 0.94rem;
+            font-weight: 800;
+        }
+
+        .nav-links a {
+            border-radius: var(--radius-sm);
+            padding: 8px 14px;
+            transition: 180ms ease;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--red);
+            background: var(--red-soft);
+        }
+
+        .btn {
+            min-height: 44px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid transparent;
+            border-radius: var(--radius);
+            padding: 10px 18px;
+            font-weight: 900;
+            cursor: pointer;
+            transition: 180ms ease;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--red), var(--red-dark));
+            color: white;
+            box-shadow: 0 12px 26px rgba(180, 35, 24, 0.22);
+        }
+
+        .btn-primary:hover { background: var(--red-dark); }
+
+        .btn-secondary {
+            background: white;
+            color: var(--ink);
+            border-color: rgba(255,255,255,0.48);
+        }
+
+        .btn-secondary:hover { border-color: white; }
+
+        .hero {
+            min-height: calc(100vh - 114px);
+            max-height: 900px;
+            color: white;
+            display: grid;
+            align-items: center;
+            padding: 78px 0;
+            position: relative;
+            overflow: hidden;
+            background:
+                linear-gradient(135deg, rgba(2, 6, 23, 0.98), rgba(15, 23, 42, 0.92) 54%, rgba(15, 118, 110, 0.24)),
+                radial-gradient(circle at 82% 18%, rgba(30, 58, 138, 0.34), transparent 30%),
+                #0b1220;
+        }
+
+        .hero::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background-image: linear-gradient(rgba(255,255,255,0.035) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.035) 1px, transparent 1px);
+            background-size: 48px 48px;
+            pointer-events: none;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: minmax(0, 1.05fr) minmax(320px, 0.95fr);
+            align-items: center;
+            gap: 52px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: #fecaca;
+            background: rgba(248, 113, 113, 0.12);
+            border: 1px solid rgba(248, 113, 113, 0.28);
+            border-radius: 999px;
+            padding: 6px 12px;
+            margin-bottom: 18px;
+            font-size: 0.9rem;
+            font-weight: 900;
+        }
+
+        .eyebrow-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #ef4444;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.45; }
+        }
+
+        h1 {
+            max-width: 820px;
+            font-size: clamp(2.8rem, 5.5vw, 4.8rem);
+            line-height: 1.02;
+            letter-spacing: -0.03em;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            max-width: 690px;
+            color: #dbe4ef;
+            font-size: 1.12rem;
+            margin-bottom: 30px;
+        }
+
+        .hero-actions {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .hero-visual {
+            position: relative;
+            border: 1px solid rgba(255,255,255,0.18);
+            border-radius: var(--radius);
+            background: linear-gradient(180deg, rgba(255,255,255,0.12), rgba(255,255,255,0.05));
+            padding: 22px;
+            box-shadow: var(--shadow-xl);
+        }
+
+        .hero-visual::after {
+            content: "Menoufia, Egypt";
+            position: absolute;
+            right: 18px;
+            bottom: 18px;
+            border: 1px solid rgba(255,255,255,0.22);
+            border-radius: 999px;
+            padding: 6px 12px;
+            color: #e2e8f0;
+            background: rgba(2, 6, 23, 0.55);
+            font-size: 0.78rem;
+            font-weight: 800;
+            backdrop-filter: blur(10px);
+        }
+
+        .hero-floating-card {
+            position: absolute;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            background: white;
+            color: var(--ink);
+            border-radius: var(--radius-sm);
+            padding: 14px 16px;
+            box-shadow: var(--shadow-xl);
+        }
+
+        .hero-floating-card.card-1 {
+            left: -24px;
+            bottom: -20px;
+        }
+
+        .hero-floating-card.card-2 {
+            right: -20px;
+            top: 22px;
+        }
+
+        .floating-icon {
+            width: 38px;
+            height: 38px;
+            border-radius: var(--radius-sm);
+            display: grid;
+            place-items: center;
+            background: var(--red-soft);
+            color: var(--red);
+            font-weight: 900;
+        }
+
+        .floating-text strong {
+            display: block;
+            font-size: 0.9rem;
+        }
+
+        .floating-text span {
+            display: block;
+            color: var(--muted);
+            font-size: 0.78rem;
+            font-weight: 700;
+        }
+
+        .lab-scene {
+            width: 100%;
+            aspect-ratio: 1 / 0.88;
+            display: block;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+            margin-top: 18px;
+        }
+
+        .stat {
+            border: 1px solid rgba(255,255,255,0.15);
+            background: rgba(255,255,255,0.06);
+            border-radius: var(--radius);
+            padding: 14px;
+        }
+
+        .stat strong {
+            display: block;
+            color: white;
+            font-size: 1.4rem;
+            line-height: 1.15;
+        }
+
+        .stat span {
+            color: #cbd5e1;
+            font-size: 0.84rem;
+            font-weight: 700;
+        }
+
+        section { padding: 72px 0; }
+
+        .section-head {
+            display: flex;
+            align-items: end;
+            justify-content: space-between;
+            gap: 22px;
+            margin-bottom: 28px;
+        }
+
+        .section-title {
+            max-width: 760px;
+        }
+
+        .section-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--red);
+            font-size: 0.84rem;
+            font-weight: 900;
+            margin-bottom: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+        }
+
+        .section-label::before {
+            content: "";
+            width: 24px;
+            height: 2px;
+            border-radius: 2px;
+            background: var(--red);
+        }
+
+        .section-title h2 {
+            font-size: clamp(1.9rem, 4vw, 3rem);
+            line-height: 1.14;
+            letter-spacing: 0;
+            margin-bottom: 10px;
+        }
+
+        .section-title p {
+            color: var(--muted);
+            font-size: 1.03rem;
+        }
+
+        .catalog-header {
+            background: white;
+            border: 1px solid var(--line);
+            border-radius: var(--radius);
+            padding: 22px;
+            margin-bottom: 24px;
+            box-shadow: var(--shadow-sm);
+            border-top: 4px solid var(--teal);
+        }
+
+        .catalog-tools {
+            display: grid;
+            grid-template-columns: minmax(240px, 1fr) 220px 150px;
+            gap: 12px;
+        }
+
+        .search-input,
+        .category-select,
+        .status-select {
+            min-height: 48px;
+            border: 1px solid var(--line);
+            border-radius: var(--radius-sm);
+            padding: 10px 14px;
+            color: var(--ink);
+            background: white;
+            outline: none;
+            font-weight: 600;
+        }
+
+        .search-input:focus,
+        .category-select:focus,
+        .status-select:focus,
+        input:focus,
+        select:focus,
+        textarea:focus {
+            border-color: var(--red);
+            box-shadow: 0 0 0 4px rgba(200, 30, 30, 0.11);
+        }
+
+        .catalog-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 18px;
+            color: var(--muted);
+            font-weight: 800;
+            flex-wrap: wrap;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 24px;
+        }
+
+        .product-card {
+            display: flex;
+            flex-direction: column;
+            border: 1px solid #e4e7ec;
+            border-radius: var(--radius);
+            background: white;
+            overflow: hidden;
+            transition: 220ms ease;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-xl);
+            border-color: rgba(15, 118, 110, 0.36);
+        }
+
+        .product-image {
+            position: relative;
+            width: 100%;
+            height: 250px;
+            background:
+                linear-gradient(180deg, #ffffff 0%, #eef4f8 100%);
+            border-bottom: 1px solid var(--line);
+            padding: 18px;
+            overflow: hidden;
+        }
+
+        .product-image svg {
+            width: 100%;
+            height: 100%;
+            display: block;
+        }
+
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            display: block;
+            object-fit: contain;
+            transition: transform 220ms ease;
+        }
+
+        .product-card:hover .product-image img {
+            transform: scale(1.04);
+        }
+
+        .packaging-badge {
+            position: absolute;
+            top: 14px;
+            left: 14px;
+            z-index: 2;
+            display: inline-flex;
+            align-items: center;
+            border-radius: 999px;
+            padding: 6px 10px;
+            background: rgba(16, 24, 40, 0.88);
+            color: white;
+            font-size: 0.72rem;
+            font-weight: 900;
+            backdrop-filter: blur(8px);
+        }
+
+        .status-badge {
+            position: absolute;
+            top: 14px;
+            right: 14px;
+            z-index: 2;
+            display: inline-flex;
+            border-radius: 999px;
+            padding: 6px 10px;
+            font-size: 0.72rem;
+            font-weight: 900;
+        }
+
+        .status-available {
+            background: #dcfce7;
+            color: #166534;
+        }
+
+        .status-documents {
+            background: #fef3c7;
+            color: #92400e;
+        }
+
+        .product-body {
+            padding: 18px 18px 14px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .product-category {
+            display: inline-flex;
+            width: fit-content;
+            border-radius: 999px;
+            padding: 4px 10px;
+            color: white;
+            background: var(--navy);
+            font-size: 0.76rem;
+            font-weight: 900;
+            margin-bottom: 10px;
+        }
+
+        .product-card h3 {
+            min-height: auto;
+            font-size: 1.16rem;
+            line-height: 1.25;
+            letter-spacing: 0;
+            margin-bottom: 8px;
+        }
+
+        .product-card p {
+            color: var(--muted);
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .industry-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-top: auto;
+            padding-top: 12px;
+        }
+
+        .industry-tags span {
+            display: inline-flex;
+            border: 1px solid #e4e7ec;
+            border-radius: 999px;
+            padding: 3px 8px;
+            background: #f8fafc;
+            color: #475467;
+            font-size: 0.74rem;
+            font-weight: 800;
+        }
+
+        .product-foot {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 10px;
+            padding: 16px 18px;
+            border-top: 1px solid #f2f4f7;
+            background: var(--soft);
+        }
+
+        .status {
+            color: #344054;
+            font-size: 0.82rem;
+            font-weight: 900;
+        }
+
+        .packaging-info {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+
+        .packaging-info .label {
+            color: var(--muted);
+            font-size: 0.75rem;
+            font-weight: 700;
+        }
+
+        .packaging-info .value {
+            color: var(--ink);
+            font-size: 0.84rem;
+            font-weight: 900;
+        }
+
+        .packaging-label {
+            display: block;
+            color: var(--muted);
+            font-size: 0.75rem;
+            font-weight: 800;
+            margin-top: 2px;
+        }
+
+        .quote-btn {
+            min-height: 38px;
+            border: 1px solid var(--line);
+            border-radius: var(--radius);
+            padding: 8px 12px;
+            background: white;
+            color: var(--teal);
+            font-weight: 900;
+            cursor: pointer;
+        }
+
+        .quote-btn:hover {
+            border-color: var(--teal);
+            background: #ecfdf5;
+        }
+
+        .notice {
+            margin-top: 18px;
+            border: 1px solid #fed7aa;
+            border-radius: var(--radius);
+            background: #fff7ed;
+            color: #9a3412;
+            padding: 12px 14px;
+            font-weight: 800;
+        }
+
+        .band {
+            background: var(--soft);
+            border-block: 1px solid #edf2f7;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+        }
+
+        .feature {
+            border: 1px solid var(--line);
+            border-radius: var(--radius);
+            background: white;
+            padding: 20px;
+        }
+
+        .feature-icon {
+            width: 42px;
+            height: 42px;
+            display: grid;
+            place-items: center;
+            border-radius: var(--radius);
+            background: var(--teal);
+            color: white;
+            font-weight: 900;
+            margin-bottom: 12px;
+        }
+
+        .feature h3 {
+            font-size: 1.06rem;
+            margin-bottom: 6px;
+        }
+
+        .feature p {
+            color: var(--muted);
+            font-size: 0.92rem;
+            font-weight: 600;
+        }
+
+        .quality {
+            display: grid;
+            grid-template-columns: 0.95fr 1.05fr;
+            gap: 28px;
+            align-items: center;
+        }
+
+        .quality-panel {
+            border-radius: var(--radius);
+            background: linear-gradient(135deg, #0b1220, #172033);
+            color: white;
+            padding: 30px;
+        }
+
+        .quality-panel h2 {
+            font-size: clamp(1.8rem, 4vw, 2.7rem);
+            line-height: 1.15;
+            margin-bottom: 14px;
+        }
+
+        .quality-panel p {
+            color: #cbd5e1;
+            margin-bottom: 18px;
+        }
+
+        .check-list {
+            list-style: none;
+            display: grid;
+            gap: 10px;
+        }
+
+        .check-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            color: #e2e8f0;
+            font-weight: 700;
+        }
+
+        .check-list li::before {
+            content: "âœ“";
+            width: 24px;
+            height: 24px;
+            flex: 0 0 24px;
+            display: grid;
+            place-items: center;
+            border-radius: 50%;
+            background: var(--teal);
+            color: white;
+            font-weight: 900;
+        }
+
+        .industries {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+        }
+
+        .industry {
+            min-height: 90px;
+            border: 1px solid var(--line);
+            border-radius: var(--radius);
+            background: white;
+            padding: 18px;
+        }
+
+        .industry strong { display: block; margin-bottom: 4px; }
+        .industry span { color: var(--muted); font-size: 0.92rem; font-weight: 600; }
+
+        .contact {
+            color: white;
+            background:
+                linear-gradient(135deg, rgba(11, 18, 32, 0.98), rgba(15, 118, 110, 0.92)),
+                var(--navy);
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 0.9fr 1.1fr;
+            gap: 28px;
+            align-items: start;
+        }
+
+        .contact h2 {
+            font-size: clamp(1.9rem, 4vw, 3rem);
+            line-height: 1.14;
+            margin-bottom: 12px;
+        }
+
+        .contact p {
+            color: #fee2e2;
+            margin-bottom: 20px;
+        }
+
+        .contact-info {
+            display: grid;
+            gap: 10px;
+            color: #fff7f7;
+            font-weight: 800;
+        }
+
+        .form {
+            display: grid;
+            gap: 12px;
+            border-radius: var(--radius);
+            background: white;
+            color: var(--ink);
+            padding: 22px;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+        }
+
+        label {
+            display: grid;
+            gap: 6px;
+            color: #344054;
+            font-size: 0.88rem;
+            font-weight: 900;
+        }
+
+        input, select, textarea {
+            width: 100%;
+            min-height: 44px;
+            border: 1px solid var(--line);
+            border-radius: var(--radius);
+            padding: 10px 12px;
+            color: var(--ink);
+            outline: none;
+        }
+
+        textarea {
+            min-height: 110px;
+            resize: vertical;
+        }
+
+        footer {
+            background: #0b1220;
+            color: #94a3b8;
+            padding: 24px 0;
+        }
+
+        .footer-inner {
+            display: flex;
+            justify-content: space-between;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        @media (max-width: 1060px) {
+            .feature-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        @media (max-width: 900px) {
+            .hero-grid,
+            .quality,
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+            .product-grid,
+            .feature-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .nav-links { display: none; }
+            .hero { min-height: auto; }
+        }
+
+        @media (max-width: 640px) {
+            .topbar .container,
+            .footer-inner {
+                display: grid;
+                gap: 6px;
+            }
+            .nav { min-height: 68px; }
+            .brand-text strong { font-size: 1.02rem; }
+            .brand-text span { display: none; }
+            .hero { padding: 46px 0; }
+            .hero-visual { padding: 14px; }
+            .stats,
+            .catalog-tools,
+            .product-grid,
+            .feature-grid,
+            .industries,
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+            .section-head { display: block; }
+            section { padding: 52px 0; }
+            .product-card { min-height: auto; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="topbar">
+            <div class="container">
+                <span>Laboratory reagents and industrial chemical supply</span>
+                <span>Menoufia, Egypt | sales@falconchemicals.com | +20 100 000 0000</span>
+            </div>
+        </div>
+
+        <div class="nav-wrap">
+            <nav class="nav container" aria-label="Main navigation">
+                <a class="brand" href="#">
+                    <svg class="brand-mark" viewBox="0 0 120 120" role="img" aria-label="Falcon Chemicals logo">
+                        <defs>
+                            <linearGradient id="falconLogo" x1="18" y1="12" x2="100" y2="108" gradientUnits="userSpaceOnUse">
+                                <stop stop-color="#14b8a6"/>
+                                <stop offset="0.48" stop-color="#1d4ed8"/>
+                                <stop offset="1" stop-color="#c81e1e"/>
+                            </linearGradient>
+                            <filter id="logoShadow" x="-20%" y="-20%" width="140%" height="140%">
+                                <feDropShadow dx="0" dy="6" stdDeviation="5" flood-color="#101828" flood-opacity="0.28"/>
+                            </filter>
+                        </defs>
+                        <g filter="url(#logoShadow)">
+                            <path d="M60 6 108 34v52l-48 28-48-28V34Z" fill="#101828"/>
+                            <path d="M60 15 97 37v46l-37 22-37-22V37Z" fill="#ffffff"/>
+                            <path d="M88 28c-24 4-45 16-64 36 18-5 33-3 46 5-14 3-27 10-39 23 26-5 48-17 64-37 6-8 9-17 10-27-6 4-12 5-17 0Z" fill="url(#falconLogo)"/>
+                            <path d="M49 43h37L61 57Z" fill="#101828"/>
+                            <circle cx="77" cy="39" r="3.2" fill="#ffffff"/>
+                            <path d="M56 72c12 7 24 7 36 0" fill="none" stroke="#101828" stroke-width="5" stroke-linecap="round"/>
+                            <path d="M40 73h28l-7 24H47Z" fill="#c81e1e"/>
+                            <path d="M46 73V55h16v18" fill="none" stroke="#101828" stroke-width="5" stroke-linejoin="round"/>
+                            <path d="M48 86h12" stroke="#ffffff" stroke-width="3.5" stroke-linecap="round"/>
+                        </g>
+                    </svg>
+                    <span class="brand-text">
+                        <strong>Falcon Chemicals</strong>
+                        <span>Precision chemical supply</span>
+                    </span>
+                </a>
+                <div class="nav-links">
+                    <a href="#products">Products</a>
+                    <a href="#quality">Quality</a>
+                    <a href="#industries">Industries</a>
+                    <a href="#contact">Contact</a>
+                </div>
+                <a class="btn btn-primary" href="#contact">Request a Quote</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container hero-grid">
+                <div>
+                    <span class="eyebrow"><span class="eyebrow-dot"></span>Falcon Chemicals</span>
+                    <h1>Reliable chemical products for laboratories and industry</h1>
+                    <p>
+                        We supply laboratory reagents, inorganic salts, acids, and specialty chemicals with clear specifications,
+                        responsive service, and document-based supply for regulated materials.
+                    </p>
+                    <div class="hero-actions">
+                        <a class="btn btn-primary" href="#products">Browse Products</a>
+                        <a class="btn btn-secondary" href="#contact">Talk to Sales</a>
+                    </div>
+                </div>
+                <div class="hero-visual">
+                    <svg class="lab-scene" viewBox="0 0 520 460" role="img" aria-label="Chemical product bottles and lab glassware">
+                        <rect x="44" y="340" width="430" height="30" rx="8" fill="#e5e7eb"/>
+                        <rect x="76" y="112" width="84" height="228" rx="13" fill="#ffffff" opacity="0.96"/>
+                        <rect x="92" y="80" width="52" height="46" rx="8" fill="#cbd5e1"/>
+                        <path d="M76 246h84v81a13 13 0 0 1-13 13H89a13 13 0 0 1-13-13Z" fill="#c81e1e"/>
+                        <rect x="214" y="150" width="90" height="190" rx="13" fill="#ffffff" opacity="0.96"/>
+                        <rect x="228" y="112" width="62" height="50" rx="8" fill="#cbd5e1"/>
+                        <path d="M214 230h90v97a13 13 0 0 1-13 13h-64a13 13 0 0 1-13-13Z" fill="#164e63"/>
+                        <path d="M366 126h72v214h-72z" fill="#ffffff" opacity="0.96"/>
+                        <path d="M366 266h72v74h-72z" fill="#0f766e"/>
+                        <rect x="354" y="94" width="96" height="38" rx="8" fill="#cbd5e1"/>
+                        <path d="M164 86c44-38 98-38 142 0" stroke="#ef4444" stroke-width="9" stroke-linecap="round" fill="none"/>
+                        <path d="M180 72c26-20 62-20 90 0" stroke="#fbbf24" stroke-width="7" stroke-linecap="round" fill="none"/>
+                        <circle cx="328" cy="86" r="13" fill="#ef4444"/>
+                        <circle cx="328" cy="86" r="33" stroke="#ef4444" stroke-width="4" fill="none" opacity="0.45"/>
+                    </svg>
+                    <div class="stats">
+                        <div class="stat"><strong>44</strong><span>listed compounds</span></div>
+                        <div class="stat"><strong>COA</strong><span>documents on request</span></div>
+                        <div class="stat"><strong>24h</strong><span>sales response</span></div>
+                    </div>
+                    <div class="hero-floating-card card-1">
+                        <div class="floating-icon">OK</div>
+                        <div class="floating-text"><strong>Quality Checked</strong><span>COA/SDS on request</span></div>
+                    </div>
+                    <div class="hero-floating-card card-2">
+                        <div class="floating-icon">24</div>
+                        <div class="floating-text"><strong>Fast Quotes</strong><span>Sales response within 24h</span></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="products">
+            <div class="container">
+                <div class="section-head">
+                    <div class="section-title">
+                        <span class="section-label">Our Catalogue</span>
+                        <h2>Chemical Product Catalogue</h2>
+                        <p>Search by compound name or filter by chemical family. Each product includes industry applications and packaging details.</p>
+                    </div>
+                </div>
+
+                <div class="catalog-header">
+                    <div class="catalog-tools">
+                        <input class="search-input" id="searchInput" type="search" placeholder="Search: Sodium nitrate, Zinc sulfate..." aria-label="Search products">
+                        <select class="category-select" id="categorySelect" aria-label="Filter by category">
+                            <option value="all">All categories</option>
+                            <option value="Ammonium">Ammonium</option>
+                            <option value="Calcium">Calcium</option>
+                            <option value="Acid">Acids</option>
+                            <option value="Lead">Lead</option>
+                            <option value="Potassium">Potassium</option>
+                            <option value="Sodium">Sodium</option>
+                            <option value="Zinc">Zinc</option>
+                            <option value="Other">Other</option>
+                        </select>
+                        <select class="status-select" id="statusSelect" aria-label="Filter by status">
+                            <option value="all">All status</option>
+                            <option value="Available">Available</option>
+                            <option value="By documents">By documents</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="catalog-meta">
+                    <span id="productCount">44 products</span>
+                    <span>Regulated materials are supplied only to qualified buyers with required documentation.</span>
+                </div>
+
+                <div class="product-grid" id="productGrid"></div>
+
+                <div class="notice">
+                    Product images use Falcon Chemicals packaging mockups: 25kg white chemical bags, 200L blue drums, and 20L blue jerry cans, each branded with the compound name.
+                </div>
+            </div>
+        </section>
+
+        <section class="band">
+            <div class="container">
+                <div class="section-head">
+                    <div class="section-title">
+                        <span class="section-label">Why Choose Us</span>
+                        <h2>Why Falcon Chemicals?</h2>
+                        <p>A focused supply partner for companies that need dependable chemicals, clear product information, and quick commercial follow-up.</p>
+                    </div>
+                </div>
+                <div class="feature-grid">
+                    <div class="feature"><div class="feature-icon">01</div><h3>Clear Specifications</h3><p>Product grades, concentrations, packaging, and documentation are clarified before supply.</p></div>
+                    <div class="feature"><div class="feature-icon">02</div><h3>Fast Quotations</h3><p>Responsive pricing and availability checks for standard and recurring customer requests.</p></div>
+                    <div class="feature"><div class="feature-icon">03</div><h3>Bulk Supply</h3><p>Flexible supply for labs, distributors, workshops, and manufacturing operations.</p></div>
+                    <div class="feature"><div class="feature-icon">04</div><h3>Responsible Handling</h3><p>Document-based supply for controlled, hazardous, or restricted materials.</p></div>
+                </div>
+            </div>
+        </section>
+
+        <section id="quality">
+            <div class="container quality">
+                <div class="quality-panel">
+                    <h2>Quality, safety, and traceable supply</h2>
+                    <p>Falcon Chemicals presents products with the practical details procurement teams need before placing an order.</p>
+                    <ul class="check-list">
+                        <li>COA and SDS can be attached to product pages.</li>
+                        <li>Packaging sizes and grades can be added per compound.</li>
+                        <li>Controlled chemicals are handled through compliant commercial channels.</li>
+                    </ul>
+                </div>
+                <div id="industries" class="industries">
+                    <div class="industry"><strong>Laboratories</strong><span>Routine reagents, salts, acids, and special requests.</span></div>
+                    <div class="industry"><strong>Manufacturing</strong><span>Industrial chemicals for production and process support.</span></div>
+                    <div class="industry"><strong>Distributors</strong><span>Catalogue supply, recurring orders, and bulk quantities.</span></div>
+                    <div class="industry"><strong>Water Treatment</strong><span>Chemicals and support materials for treatment operations.</span></div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="contact">
+            <div class="container contact-grid">
+                <div>
+                    <h2>Request pricing or product availability</h2>
+                    <p>Send the compound name, required quantity, grade, and delivery location. The sales team can reply with price, packaging, and delivery timing.</p>
+                    <div class="contact-info">
+                        <span>WhatsApp / Phone: +20 100 000 0000</span>
+                        <span>Email: sales@falconchemicals.com</span>
+                        <span>Location: Menoufia, Egypt</span>
+                    </div>
+                </div>
+                <form class="form" onsubmit="event.preventDefault(); alert('Thank you. This form can be connected to WhatsApp, email, or a CRM.');">
+                    <div class="form-row">
+                        <label>Name or Company
+                            <input type="text" name="name" placeholder="Your company name" required>
+                        </label>
+                        <label>Phone
+                            <input type="tel" name="phone" placeholder="+20 100 000 0000" required>
+                        </label>
+                    </div>
+                    <div class="form-row">
+                        <label>Product Category
+                            <select name="category">
+                                <option>Laboratory reagent</option>
+                                <option>Industrial chemical</option>
+                                <option>Acid</option>
+                                <option>Salt</option>
+                                <option>Other</option>
+                            </select>
+                        </label>
+                        <label>Quantity
+                            <input type="text" name="quantity" placeholder="Example: 5 kg / 25 kg / 20 L">
+                        </label>
+                    </div>
+                    <label>Request Details
+                        <textarea name="message" placeholder="Write the compound name, grade, quantity, and delivery location"></textarea>
+                    </label>
+                    <button class="btn btn-primary" type="submit">Send Request</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container footer-inner">
+            <span>Â© 2026 Falcon Chemicals. All rights reserved.</span>
+            <span>Laboratory and industrial chemical catalogue.</span>
+        </div>
+    </footer>
+
+    <script>
+        const products = [
+    {
+        "name":  "Acetic anhydride",
+        "category":  "Other",
+        "type":  "Lab / industrial reagent",
+        "status":  "Available",
+        "industries":  "Pharmaceuticals, Plastics, Organic chemicals",
+        "image":  "assets/product-images/acetic-anhydride.svg",
+        "packaging":  "bag"
+    },
+    {
+        "name":  "Ammonium acetate",
+        "category":  "Ammonium",
+        "type":  "Acetate salt / reagent",
+        "status":  "Available",
+        "industries":  "Laboratories, Pharmaceuticals, Buffers",
+        "image":  "assets/product-images/ammonium-acetate.svg",
+        "packaging":  "jerrycan"
+    },
+    {
+        "name":  "Ammonium ferrous sulfate",
+        "category":  "Ammonium",
+        "type":  "Sulfate salt",
+        "status":  "Available",
+        "industries":  "Chemical analysis, Titrations",
+        "image":  "assets/product-images/ammonium-ferrous-sulfate.svg",
+        "packaging":  "jerrycan"
+    },
+    {
+        "name":  "Ammonium formate",
+        "category":  "Ammonium",
+        "type":  "Lab / industrial reagent",
+        "status":  "Available",
+        "industries":  "HPLC, Laboratories",
+        "image":  "assets/product-images/ammonium-formate.svg",
+        "packaging":  "jerrycan"
+    },
+    {
+        "name":  "Ammonium nitrate",
+        "category":  "Ammonium",
+        "type":  "Nitrate salt",
+        "status":  "By documents",
+        "industries":  "Fertilizers, Explosives",
+        "image":  "assets/product-images/ammonium-nitrate.svg",
+        "packaging":  "bag"
+    },
+    {
+        "name":  "Ammonium oxalate",
+        "category":  "Ammonium",
+        "type":  "Oxalate salt",
+        "status":  "Available",
+        "industries":  "Chemical analysis",
+        "image":  "assets/product-images/ammonium-oxalate.svg",
+        "packaging":  "jerrycan"
+    },
+    {
+        "name":  "Ammonium phosphate",
+        "category":  "Ammonium",
+        "type":  "Phosphate salt",
+        "status":  "Available",
+        "industries":  "Fertilizers, Food",
+        "image":  "assets/product-images/ammonium-phosphate.svg",
+        "packaging":  "bag"
+    },
+    {
+        "name":  "Ammonium salicylate",
+        "category":  "Ammonium",
+        "type":  "Lab / industrial reagent",
+        "status":  "Available",
+        "industries":  "Pharmaceuticals",
+        "image":  "assets/product-images/ammonium-salicylate.svg",
+        "packaging":  "jerrycan"
+    },
+    {
+        "name":  "Ammonium sulfate",
+        "category":  "Ammonium",
+        "type":  "Sulfate salt",
+        "status":  "Available",
+        "industries":  "Fertilizers, Water treatment",
+        "image":  "assets/product-images/ammonium-sulfate.svg",
+        "packaging":  "drum"
+    },
+    {
+        "name":  "Ammonium tartrate",
+        "category":  "Ammonium",
+        "type":  "Tartrate salt",
+        "status":  "Available",
+        "industries":  "Laboratories",
+        "image":  "assets/product-images/ammonium-tartrate.svg",
+        "packaging":  "jerrycan"
+    },
+    {
+        "name":  "Calcium lactate",
+        "category":  "Calcium",
+        "type":  "Lab / industrial reagent",
+        "status":  "Available",
+        "industries":  "Food, Pharmaceuticals",
+        "image":  "assets/product-images/calcium-lactate.svg",
+        "packaging":  "jerrycan"
+    },
+    {
+        "name":  "Calcium nitrate",
+        "category":  "Calcium",
+        "type":  "Nitrate salt",
+        "status":  "Available",
+        "industries":  "Fertilizers",
+        "image":  "assets/product-images/calcium-nitrate.svg",
+        "packaging":  "bag"
+    },
+    {
+        "name":  "Calcium oxalate",
+        "category":  "Calcium",
+        "type":  "Oxalate salt",
+        "status":  "Available",
+        "industries":  "Analysis reference",
+        "image":  "assets/product-images/calcium-oxalate.svg",
+        "packaging":  "jerrycan"
+    },
+    {
+        "name":  "Calcium phosphate",
+        "category":  "Calcium",
+        "type":  "Phosphate salt",
+        "status":  "Available",
+        "industries":  "Food, Pharma, Feed",
+        "image":  "assets/product-images/calcium-phosphate.svg",
+        "packaging":  "bag"
+    },
+    {
+        "name":  "Hydrochloric acid 37%",
+        "category":  "Acid",
+        "type":  "Concentrated acid",
+        "status":  "By documents",
+        "industries":  "Metal cleaning, Water treatment",
+        "image":  "assets/product-images/hydrochloric-acid-37-percent.svg",
+        "packaging":  "drum"
+    },
+    {
+        "name":  "Lead acetate",
+        "category":  "Lead",
+        "type":  "Acetate salt / reagent",
+        "status":  "By documents",
+        "industries":  "Chemical analysis",
+        "image":  "assets/product-images/lead-acetate.svg",
+        "packaging":  "jerrycan"
+    },
+    {
+        "name":  "Lead nitrate",
+        "category":  "Lead",
+        "type":  "Nitrate salt",
+        "status":  "By documents",
+        "industries":  "Explosives, Chemicals",
+        "image":  "assets/product-images/lead-nitrate.svg",
+        "packaging":  "jerrycan"
+    },
+    {
+        "name":  "Lead sulfate",
+        "category":  "Lead",
+        "type":  "Sulfate salt",
+        "status":  "By documents",
+        "industries":  "Batteries",
+        "image":  "assets/product-images/lead-sulfate.svg",
+        "packaging":  "jerrycan"
+    },
+    {
+        "name":  "Nitric acid 60%",
+        "category":  "Acid",
+        "type":  "Concentrated acid",
+        "status":  "By documents",
+        "industries":  "Explosives, Metals, Fertilizers",
+        "image":  "assets/product-images/nitric-acid-60-percent.svg",
+        "packaging":  "drum"
+    },
+    {
+        "name":  "Picric acid",
+        "category":  "Acid",
+        "type":  "Concentrated acid",
+        "status":  "By documents",
+        "industries":  "Explosives, Labs",
+        "image":  "assets/product-images/picric-acid.svg",
+        "packaging":  "drum"
+    },
+    {
+        "name":  "Potassium acetate",
+        "category":  "Potassium",
+        "type":  "Acetate salt / reagent",
+        "status":  "Available",
+        "industries":  "Food, Buffers",
+        "image":  "assets/product-images/potassium-acetate.svg",
+        "packaging":  "jerrycan"
+    },
+    {
+        "name":  "Potassium fluoride",
+        "category":  "Potassium",
+        "type":  "Fluoride salt",
+        "status":  "By documents",
+        "industries":  "Chemicals, Glass etching",
+        "image":  "assets/product-images/potassium-fluoride.svg",
+        "packaging":  "jerrycan"
+    },
+    {
+        "name":  "Potassium nitrate",
+        "category":  "Potassium",
+        "type":  "Nitrate salt",
+        "status":  "By documents",
+        "industries":  "Fertilizers, Explosives, Food",
+        "image":  "assets/product-images/potassium-nitrate.svg",
+        "packaging":  "bag"
+    },
+    {
+        "name":  "Potassium oxalate",
+        "category":  "Potassium",
+        "type":  "Oxalate salt",
+        "status":  "Available",
+        "industries":  "Analysis",
+        "image":  "assets/product-images/potassium-oxalate.svg",
+        "packaging":  "jerrycan"
+    },
+    {
+        "name":  "Potassium phosphate di",
+        "category":  "Potassium",
+        "type":  "Phosphate salt",
+        "status":  "Available",
+        "industries":  "Food, Buffers, Fertilizers",
+        "image":  "assets/product-images/potassium-phosphate-di.svg",
+        "packaging":  "bag"
+    },
+    {
+        "name":  "Potassium phosphate mono",
+        "category":  "Potassium",
+        "type":  "Phosphate salt",
+        "status":  "Available",
+        "industries":  "Food, Fertilizers",
+        "image":  "assets/product-images/potassium-phosphate-mono.svg",
+        "packaging":  "bag"
+    },
+    {
+        "name":  "Potassium phosphate tri",
+        "category":  "Potassium",
+        "type":  "Phosphate salt",
+        "status":  "Available",
+        "industries":  "Detergents, Water treatment",
+        "image":  "assets/product-images/potassium-phosphate-tri.svg",
+        "packaging":  "drum"
+    },
+    {
+        "name":  "Potassium sulfate",
+        "category":  "Potassium",
+        "type":  "Sulfate salt",
+        "status":  "Available",
+        "industries":  "Fertilizers",
+        "image":  "assets/product-images/potassium-sulfate.svg",
+        "packaging":  "bag"
+    },
+    {
+        "name":  "Potassium tartrate",
+        "category":  "Potassium",
+        "type":  "Tartrate salt",
+        "status":  "Available",
+        "industries":  "Food, Labs",
+        "image":  "assets/product-images/potassium-tartrate.svg",
+        "packaging":  "jerrycan"
+    },
+    {
+        "name":  "Silver nitrate",
+        "category":  "Other",
+        "type":  "Nitrate salt",
+        "status":  "By documents",
+        "industries":  "Analysis, Medical",
+        "image":  "assets/product-images/silver-nitrate.svg",
+        "packaging":  "jerrycan"
+    },
+    {
+        "name":  "Sodium acetate",
+        "category":  "Sodium",
+        "type":  "Acetate salt / reagent",
+        "status":  "Available",
+        "industries":  "Food, Buffers",
+        "image":  "assets/product-images/sodium-acetate.svg",
+        "packaging":  "jerrycan"
+    },
+    {
+        "name":  "Sodium fluoride",
+        "category":  "Sodium",
+        "type":  "Fluoride salt",
+        "status":  "By documents",
+        "industries":  "Toothpaste, Water",
+        "image":  "assets/product-images/sodium-fluoride.svg",
+        "packaging":  "jerrycan"
+    },
+    {
+        "name":  "Sodium nitrate",
+        "category":  "Sodium",
+        "type":  "Nitrate salt",
+        "status":  "Available",
+        "industries":  "Fertilizers, Food",
+        "image":  "assets/product-images/sodium-nitrate.svg",
+        "packaging":  "bag"
+    },
+    {
+        "name":  "Sodium oxalate",
+        "category":  "Sodium",
+        "type":  "Oxalate salt",
+        "status":  "Available",
+        "industries":  "Analysis",
+        "image":  "assets/product-images/sodium-oxalate.svg",
+        "packaging":  "jerrycan"
+    },
+    {
+        "name":  "Sodium phosphate di",
+        "category":  "Sodium",
+        "type":  "Phosphate salt",
+        "status":  "Available",
+        "industries":  "Detergents, Food",
+        "image":  "assets/product-images/sodium-phosphate-di.svg",
+        "packaging":  "bag"
+    },
+    {
+        "name":  "Sodium phosphate mono",
+        "category":  "Sodium",
+        "type":  "Phosphate salt",
+        "status":  "Available",
+        "industries":  "Food, Water",
+        "image":  "assets/product-images/sodium-phosphate-mono.svg",
+        "packaging":  "jerrycan"
+    },
+    {
+        "name":  "Sodium phosphate tri",
+        "category":  "Sodium",
+        "type":  "Phosphate salt",
+        "status":  "Available",
+        "industries":  "Detergents, Water treatment",
+        "image":  "assets/product-images/sodium-phosphate-tri.svg",
+        "packaging":  "drum"
+    },
+    {
+        "name":  "Sodium potassium tartrate",
+        "category":  "Sodium",
+        "type":  "Tartrate salt",
+        "status":  "Available",
+        "industries":  "Chemical analysis",
+        "image":  "assets/product-images/sodium-potassium-tartrate.svg",
+        "packaging":  "jerrycan"
+    },
+    {
+        "name":  "Sodium sulfate",
+        "category":  "Sodium",
+        "type":  "Sulfate salt",
+        "status":  "Available",
+        "industries":  "Detergents, Paper",
+        "image":  "assets/product-images/sodium-sulfate.svg",
+        "packaging":  "bag"
+    },
+    {
+        "name":  "Sodium tartrate",
+        "category":  "Sodium",
+        "type":  "Tartrate salt",
+        "status":  "Available",
+        "industries":  "Food, Labs",
+        "image":  "assets/product-images/sodium-tartrate.svg",
+        "packaging":  "jerrycan"
+    },
+    {
+        "name":  "Zinc acetate",
+        "category":  "Zinc",
+        "type":  "Acetate salt / reagent",
+        "status":  "Available",
+        "industries":  "Pharmaceuticals, Chemicals",
+        "image":  "assets/product-images/zinc-acetate.svg",
+        "packaging":  "jerrycan"
+    },
+    {
+        "name":  "Zinc nitrate",
+        "category":  "Zinc",
+        "type":  "Nitrate salt",
+        "status":  "Available",
+        "industries":  "Chemicals, Coating",
+        "image":  "assets/product-images/zinc-nitrate.svg",
+        "packaging":  "bag"
+    },
+    {
+        "name":  "Zinc phosphate",
+        "category":  "Zinc",
+        "type":  "Phosphate salt",
+        "status":  "Available",
+        "industries":  "Coating, Corrosion protection",
+        "image":  "assets/product-images/zinc-phosphate.svg",
+        "packaging":  "bag"
+    },
+    {
+        "name":  "Zinc sulfate",
+        "category":  "Zinc",
+        "type":  "Sulfate salt",
+        "status":  "Available",
+        "industries":  "Fertilizers, Pharma, Paper",
+        "image":  "assets/product-images/zinc-sulfate.svg",
+        "packaging":  "bag"
+    }
+];
+
+        const themeMap = {
+            Ammonium: { main: "#164e63", soft: "#e0f2fe", accent: "#c81e1e", label: "NH4" },
+            Calcium: { main: "#047857", soft: "#dcfce7", accent: "#84cc16", label: "Ca" },
+            Acid: { main: "#b91c1c", soft: "#fee2e2", accent: "#f97316", label: "H+" },
+            Lead: { main: "#475569", soft: "#e2e8f0", accent: "#94a3b8", label: "Pb" },
+            Potassium: { main: "#7c3aed", soft: "#ede9fe", accent: "#c81e1e", label: "K" },
+            Sodium: { main: "#2563eb", soft: "#dbeafe", accent: "#38bdf8", label: "Na" },
+            Zinc: { main: "#b45309", soft: "#fef3c7", accent: "#c81e1e", label: "Zn" },
+            Other: { main: "#101828", soft: "#f1f5f9", accent: "#c81e1e", label: "Rx" }
+        };
+
+        const productGrid = document.getElementById("productGrid");
+        const searchInput = document.getElementById("searchInput");
+        const categorySelect = document.getElementById("categorySelect");
+        const statusSelect = document.getElementById("statusSelect");
+        const productCount = document.getElementById("productCount");
+
+        function escapeHtml(value) {
+            if (!value) return "";
+            return value.replace(/[&<>"']/g, (char) => ({
+                "&": "&amp;",
+                "<": "&lt;",
+                ">": "&gt;",
+                "\"": "&quot;",
+                "'": "&#39;"
+            }[char]));
+        }
+
+        function getPackagingShort(packaging) {
+            const labels = { drum: "200L Drum", jerrycan: "20L Jerry Can", bag: "25kg Bag" };
+            return labels[packaging] || packaging;
+        }
+
+        function getPackagingLabel(packaging) {
+            const labels = { drum: "200L Blue Drum", jerrycan: "20L Blue Jerry Can", bag: "25kg White Bag" };
+            return labels[packaging] || packaging;
+        }
+
+        function initials(name) {
+            return name
+                .replace(/[0-9%]/g, "")
+                .split(/\s+/)
+                .filter(Boolean)
+                .slice(0, 2)
+                .map((word) => word[0].toUpperCase())
+                .join("");
+        }
+
+        function productImage(product, index) {
+            const theme = themeMap[product.category] || themeMap.Other;
+            const code = initials(product.name);
+            const fillLevel = 74 + (index % 4) * 8;
+            return `
+                <svg viewBox="0 0 320 190" role="img" aria-label="${escapeHtml(product.name)} product image">
+                    <rect width="320" height="190" fill="${theme.soft}"/>
+                    <circle cx="272" cy="30" r="66" fill="${theme.main}" opacity="0.10"/>
+                    <circle cx="36" cy="164" r="54" fill="${theme.accent}" opacity="0.10"/>
+                    <ellipse cx="160" cy="166" rx="82" ry="13" fill="#0f172a" opacity="0.10"/>
+                    <rect x="104" y="30" width="112" height="136" rx="14" fill="#ffffff" stroke="${theme.main}" stroke-width="5"/>
+                    <rect x="122" y="14" width="76" height="32" rx="8" fill="#cbd5e1" stroke="${theme.main}" stroke-width="4"/>
+                    <path d="M104 ${fillLevel}h112v76a14 14 0 0 1-14 14h-84a14 14 0 0 1-14-14Z" fill="${theme.main}" opacity="0.92"/>
+                    <rect x="122" y="78" width="76" height="48" rx="8" fill="#ffffff" opacity="0.96"/>
+                    <text x="160" y="104" text-anchor="middle" fill="${theme.main}" font-size="24" font-weight="900" font-family="Inter, Arial">${theme.label}</text>
+                    <text x="160" y="149" text-anchor="middle" fill="#ffffff" font-size="22" font-weight="900" font-family="Inter, Arial">${code}</text>
+                    <path d="M236 70c18 0 34 13 34 31s-16 31-34 31" fill="none" stroke="${theme.accent}" stroke-width="8" stroke-linecap="round" opacity="0.75"/>
+                </svg>
+            `;
+        }
+
+        function renderProducts() {
+            const query = searchInput.value.trim().toLowerCase();
+            const category = categorySelect.value;
+            const status = statusSelect.value;
+            const visibleProducts = products.filter((product) => {
+                const haystack = `${product.name} ${product.industries} ${product.type}`.toLowerCase();
+                const matchesSearch = !query || haystack.includes(query);
+                const matchesCategory = category === "all" || product.category === category;
+                const matchesStatus = status === "all" || product.status === status;
+                return matchesSearch && matchesCategory && matchesStatus;
+            });
+
+            if (visibleProducts.length === 0) {
+                productGrid.innerHTML = `
+                    <div style="grid-column: 1 / -1; text-align: center; padding: 60px 20px; color: var(--muted);">
+                        <div style="font-size: 2.7rem; margin-bottom: 14px;">Search</div>
+                        <h3 style="font-size: 1.2rem; margin-bottom: 8px; color: var(--ink);">No products found</h3>
+                        <p>Try adjusting your search term or filters.</p>
+                    </div>
+                `;
+            } else {
+                productGrid.innerHTML = visibleProducts.map((product) => {
+                    const theme = themeMap[product.category] || themeMap.Other;
+                    const statusClass = product.status === "Available" ? "status-available" : "status-documents";
+
+                    return `
+                <article class="product-card">
+                    <div class="product-image">
+                        <span class="packaging-badge">${escapeHtml(getPackagingShort(product.packaging))}</span>
+                        <span class="status-badge ${statusClass}">${escapeHtml(product.status)}</span>
+                        <img src="${product.image}" alt="${escapeHtml(product.name)} packaging">
+                    </div>
+                    <div class="product-body">
+                        <span class="product-category" style="background:${theme.main}">${escapeHtml(product.category)}</span>
+                        <h3>${escapeHtml(product.name)}</h3>
+                        <p>${escapeHtml(product.type)}</p><div class="industry-tags">${product.industries.split(",").map((industry) => `<span>${escapeHtml(industry.trim())}</span>`).join("")}</div>
+                    </div>
+                    <div class="product-foot">
+                        <div class="packaging-info"><span class="label">Packaging</span><span class="value">${escapeHtml(getPackagingLabel(product.packaging))}</span></div>
+                        <button class="quote-btn" type="button" data-product="${escapeHtml(product.name)}">Quote</button>
+                    </div>
+                </article>
+                    `;
+                }).join("");
+            }
+
+            productCount.innerHTML = `<strong>${visibleProducts.length}</strong> product${visibleProducts.length === 1 ? "" : "s"} shown`;
+
+            document.querySelectorAll(".quote-btn").forEach((button) => {
+                button.addEventListener("click", () => {
+                    document.querySelector("#contact").scrollIntoView({ behavior: "smooth" });
+                    const message = document.querySelector("textarea[name='message']");
+                    message.value = `Please send a quotation for: ${button.dataset.product}`;
+                    message.focus();
+                });
+            });
+        }
+
+        searchInput.addEventListener("input", renderProducts);
+        categorySelect.addEventListener("change", renderProducts);
+        statusSelect.addEventListener("change", renderProducts);
+        renderProducts();
+    </script>
+</body>
+</html>
+
+
+
