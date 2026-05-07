@@ -1,0 +1,33 @@
+{
+  "name": "falcon-chemicals-website",
+  "version": "1.0.0",
+  "description": "Professional website for Falcon Chemicals - Laboratory & Industrial Chemical Supplier",
+  "main": "index.html",
+  "author": "Falcon Chemicals",
+  "license": "MIT",
+  "keywords": [
+    "chemicals",
+    "laboratory",
+    "industrial",
+    "reagents",
+    "supplier",
+    "website"
+  ],
+  "scripts": {
+    "generate-images": "node generate_product_images.js",
+    "generate-images-py": "python3 generate_product_images.py",
+    "serve": "http-server . -c-1 -p 8000",
+    "test": "echo \"No tests configured\""
+  },
+  "devDependencies": {
+    "http-server": "^14.1.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/falconchemicals/falcon-chemicals.git"
+  },
+  "bugs": {
+    "url": "https://github.com/falconchemicals/falcon-chemicals/issues"
+  },
+  "homepage": "https://falconchemicals.com"
+}

@@ -39,6 +39,7 @@
         }
         a { color: inherit; text-decoration: none; }
         button, input, select, textarea { font: inherit; }
+        img { max-width: 100%; }
 
         .container {
             width: min(1280px, calc(100% - 48px));
@@ -80,6 +81,13 @@
             height: 14px;
             opacity: 0.8;
         }
+
+        .topbar a {
+            color: #f8fafc;
+            transition: color 180ms ease;
+        }
+
+        .topbar a:hover { color: #fecaca; }
 
         .nav-wrap {
             position: sticky;
@@ -146,6 +154,45 @@
         .nav-links a.active {
             color: var(--red);
             background: var(--red-soft);
+        }
+
+        .mobile-menu-btn {
+            width: 44px;
+            height: 44px;
+            display: none;
+            place-items: center;
+            border: 1px solid var(--line);
+            border-radius: var(--radius-sm);
+            background: white;
+            cursor: pointer;
+        }
+
+        .mobile-menu-btn span,
+        .mobile-menu-btn::before,
+        .mobile-menu-btn::after {
+            content: "";
+            width: 20px;
+            height: 2px;
+            display: block;
+            border-radius: 2px;
+            background: var(--ink);
+            transition: 180ms ease;
+        }
+
+        .mobile-menu-btn span {
+            margin: 5px 0;
+        }
+
+        .mobile-menu-btn[aria-expanded="true"] span {
+            opacity: 0;
+        }
+
+        .mobile-menu-btn[aria-expanded="true"]::before {
+            transform: translateY(7px) rotate(45deg);
+        }
+
+        .mobile-menu-btn[aria-expanded="true"]::after {
+            transform: translateY(-7px) rotate(-45deg);
         }
 
         .btn {
@@ -256,6 +303,37 @@
             display: flex;
             gap: 12px;
             flex-wrap: wrap;
+        }
+
+        .hero-service-strip {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 10px;
+            margin-top: 24px;
+            max-width: 720px;
+        }
+
+        .hero-service {
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            border-radius: var(--radius-sm);
+            background: rgba(255, 255, 255, 0.08);
+            padding: 12px;
+            backdrop-filter: blur(10px);
+        }
+
+        .hero-service strong {
+            display: block;
+            color: white;
+            font-size: 0.95rem;
+            line-height: 1.25;
+        }
+
+        .hero-service span {
+            display: block;
+            color: #cbd5e1;
+            font-size: 0.78rem;
+            font-weight: 700;
+            margin-top: 4px;
         }
 
         .hero-visual {
@@ -418,7 +496,7 @@
 
         .catalog-tools {
             display: grid;
-            grid-template-columns: minmax(240px, 1fr) 220px 150px;
+            grid-template-columns: minmax(240px, 1fr) 220px 150px auto;
             gap: 12px;
         }
 
@@ -443,6 +521,25 @@
         textarea:focus {
             border-color: var(--red);
             box-shadow: 0 0 0 4px rgba(200, 30, 30, 0.11);
+        }
+
+        .clear-filters {
+            min-height: 48px;
+            border: 1px solid var(--line);
+            border-radius: var(--radius-sm);
+            padding: 10px 14px;
+            background: #f8fafc;
+            color: var(--steel);
+            font-weight: 900;
+            cursor: pointer;
+            transition: 180ms ease;
+            white-space: nowrap;
+        }
+
+        .clear-filters:hover {
+            border-color: var(--red);
+            color: var(--red);
+            background: var(--red-soft);
         }
 
         .catalog-meta {
@@ -494,6 +591,7 @@
             width: 100%;
             height: 100%;
             display: block;
+            transition: transform 220ms ease;
         }
 
         .product-image img {
@@ -504,6 +602,7 @@
             transition: transform 220ms ease;
         }
 
+        .product-card:hover .product-image svg,
         .product-card:hover .product-image img {
             transform: scale(1.04);
         }
@@ -747,7 +846,7 @@
         }
 
         .check-list li::before {
-            content: "âœ“";
+            content: "OK";
             width: 24px;
             height: 24px;
             flex: 0 0 24px;
@@ -808,6 +907,30 @@
             font-weight: 800;
         }
 
+        .contact-info a {
+            color: white;
+            text-decoration: underline;
+            text-decoration-color: rgba(255, 255, 255, 0.34);
+            text-underline-offset: 4px;
+        }
+
+        .contact-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 18px;
+        }
+
+        .btn-whatsapp {
+            background: #16a34a;
+            color: white;
+            box-shadow: 0 12px 26px rgba(22, 163, 74, 0.2);
+        }
+
+        .btn-whatsapp:hover {
+            background: #15803d;
+        }
+
         .form {
             display: grid;
             gap: 12px;
@@ -846,6 +969,36 @@
             resize: vertical;
         }
 
+        .form-status {
+            min-height: 20px;
+            color: var(--teal);
+            font-size: 0.86rem;
+            font-weight: 800;
+        }
+
+        .whatsapp-float {
+            position: fixed;
+            right: 22px;
+            bottom: 22px;
+            z-index: 80;
+            min-height: 48px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 999px;
+            padding: 12px 18px;
+            background: #16a34a;
+            color: white;
+            font-weight: 900;
+            box-shadow: var(--shadow-xl);
+            transition: 180ms ease;
+        }
+
+        .whatsapp-float:hover {
+            transform: translateY(-2px);
+            background: #15803d;
+        }
+
         footer {
             background: #0b1220;
             color: #94a3b8;
@@ -875,22 +1028,46 @@
             .feature-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
-            .nav-links { display: none; }
+            .mobile-menu-btn { display: grid; }
+            .nav-links {
+                position: absolute;
+                left: 24px;
+                right: 24px;
+                top: calc(100% + 10px);
+                display: none;
+                flex-direction: column;
+                align-items: stretch;
+                gap: 4px;
+                border: 1px solid var(--line);
+                border-radius: var(--radius);
+                background: white;
+                padding: 10px;
+                box-shadow: var(--shadow);
+            }
+            .nav-links.open { display: flex; }
+            .nav-links a {
+                padding: 12px 14px;
+            }
             .hero { min-height: auto; }
         }
 
         @media (max-width: 640px) {
+            .container {
+                width: min(100% - 32px, 1280px);
+            }
             .topbar .container,
             .footer-inner {
                 display: grid;
                 gap: 6px;
             }
             .nav { min-height: 68px; }
+            .nav > .btn { display: none; }
             .brand-text strong { font-size: 1.02rem; }
             .brand-text span { display: none; }
             .hero { padding: 46px 0; }
             .hero-visual { padding: 14px; }
             .stats,
+            .hero-service-strip,
             .catalog-tools,
             .product-grid,
             .feature-grid,
@@ -909,7 +1086,7 @@
         <div class="topbar">
             <div class="container">
                 <span>Laboratory reagents and industrial chemical supply</span>
-                <span>Menoufia, Egypt | sales@falconchemicals.com | +20 100 000 0000</span>
+                <span>Menoufia, Egypt | <a href="mailto:sales@falconchemicals.com">sales@falconchemicals.com</a> | <a href="tel:+201000000000">+20 100 000 0000</a></span>
             </div>
         </div>
 
@@ -944,12 +1121,13 @@
                         <span>Precision chemical supply</span>
                     </span>
                 </a>
-                <div class="nav-links">
+                <div class="nav-links" id="navLinks">
                     <a href="#products">Products</a>
                     <a href="#quality">Quality</a>
                     <a href="#industries">Industries</a>
                     <a href="#contact">Contact</a>
                 </div>
+                <button class="mobile-menu-btn" id="mobileMenuBtn" type="button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="navLinks"><span></span></button>
                 <a class="btn btn-primary" href="#contact">Request a Quote</a>
             </nav>
         </div>
@@ -959,15 +1137,20 @@
         <section class="hero">
             <div class="container hero-grid">
                 <div>
-                    <span class="eyebrow"><span class="eyebrow-dot"></span>Falcon Chemicals</span>
-                    <h1>Reliable chemical products for laboratories and industry</h1>
+                    <span class="eyebrow"><span class="eyebrow-dot"></span>Falcon Chemicals Egypt</span>
+                    <h1>Laboratory and industrial chemicals, ready for quotation</h1>
                     <p>
-                        We supply laboratory reagents, inorganic salts, acids, and specialty chemicals with clear specifications,
-                        responsive service, and document-based supply for regulated materials.
+                        A cleaner Falcon Chemicals catalogue with 44 compounds, practical packaging details,
+                        quick product filtering, and direct sales contact for quotation requests.
                     </p>
                     <div class="hero-actions">
                         <a class="btn btn-primary" href="#products">Browse Products</a>
-                        <a class="btn btn-secondary" href="#contact">Talk to Sales</a>
+                        <a class="btn btn-secondary" href="#contact">Request Pricing</a>
+                    </div>
+                    <div class="hero-service-strip">
+                        <div class="hero-service"><strong>44 compounds</strong><span>Searchable catalogue</span></div>
+                        <div class="hero-service"><strong>COA / SDS</strong><span>Documents on request</span></div>
+                        <div class="hero-service"><strong>Bulk supply</strong><span>Bags, drums, jerry cans</span></div>
                     </div>
                 </div>
                 <div class="hero-visual">
@@ -1033,6 +1216,7 @@
                             <option value="Available">Available</option>
                             <option value="By documents">By documents</option>
                         </select>
+                        <button class="clear-filters" id="clearFilters" type="button">Reset</button>
                     </div>
                 </div>
 
@@ -1093,12 +1277,16 @@
                     <h2>Request pricing or product availability</h2>
                     <p>Send the compound name, required quantity, grade, and delivery location. The sales team can reply with price, packaging, and delivery timing.</p>
                     <div class="contact-info">
-                        <span>WhatsApp / Phone: +20 100 000 0000</span>
-                        <span>Email: sales@falconchemicals.com</span>
+                        <span>WhatsApp / Phone: <a href="tel:+201000000000">+20 100 000 0000</a></span>
+                        <span>Email: <a href="mailto:sales@falconchemicals.com">sales@falconchemicals.com</a></span>
                         <span>Location: Menoufia, Egypt</span>
                     </div>
+                    <div class="contact-actions">
+                        <a class="btn btn-whatsapp" href="https://wa.me/201000000000?text=Hello%20Falcon%20Chemicals%2C%20I%20need%20a%20chemical%20quotation." target="_blank" rel="noopener">WhatsApp Sales</a>
+                        <a class="btn btn-secondary" href="mailto:sales@falconchemicals.com">Email Sales</a>
+                    </div>
                 </div>
-                <form class="form" onsubmit="event.preventDefault(); alert('Thank you. This form can be connected to WhatsApp, email, or a CRM.');">
+                <form class="form" id="quoteForm">
                     <div class="form-row">
                         <label>Name or Company
                             <input type="text" name="name" placeholder="Your company name" required>
@@ -1124,15 +1312,18 @@
                     <label>Request Details
                         <textarea name="message" placeholder="Write the compound name, grade, quantity, and delivery location"></textarea>
                     </label>
+                    <p class="form-status" id="formStatus" aria-live="polite"></p>
                     <button class="btn btn-primary" type="submit">Send Request</button>
                 </form>
             </div>
         </section>
     </main>
 
+    <a class="whatsapp-float" href="https://wa.me/201000000000?text=Hello%20Falcon%20Chemicals%2C%20I%20need%20a%20chemical%20quotation." target="_blank" rel="noopener">WhatsApp</a>
+
     <footer>
         <div class="container footer-inner">
-            <span>Â© 2026 Falcon Chemicals. All rights reserved.</span>
+            <span>&copy; 2026 Falcon Chemicals. All rights reserved.</span>
             <span>Laboratory and industrial chemical catalogue.</span>
         </div>
     </footer>
@@ -1553,6 +1744,10 @@
         const categorySelect = document.getElementById("categorySelect");
         const statusSelect = document.getElementById("statusSelect");
         const productCount = document.getElementById("productCount");
+        const clearFilters = document.getElementById("clearFilters");
+        const mobileMenuBtn = document.getElementById("mobileMenuBtn");
+        const navLinks = document.getElementById("navLinks");
+        const formStatus = document.getElementById("formStatus");
 
         function escapeHtml(value) {
             if (!value) return "";
@@ -1621,13 +1816,13 @@
             if (visibleProducts.length === 0) {
                 productGrid.innerHTML = `
                     <div style="grid-column: 1 / -1; text-align: center; padding: 60px 20px; color: var(--muted);">
-                        <div style="font-size: 2.7rem; margin-bottom: 14px;">Search</div>
+                        <div style="font-size: 2rem; margin-bottom: 14px; font-weight: 900; color: var(--red);">No matches</div>
                         <h3 style="font-size: 1.2rem; margin-bottom: 8px; color: var(--ink);">No products found</h3>
                         <p>Try adjusting your search term or filters.</p>
                     </div>
                 `;
             } else {
-                productGrid.innerHTML = visibleProducts.map((product) => {
+                productGrid.innerHTML = visibleProducts.map((product, index) => {
                     const theme = themeMap[product.category] || themeMap.Other;
                     const statusClass = product.status === "Available" ? "status-available" : "status-documents";
 
@@ -1636,7 +1831,7 @@
                     <div class="product-image">
                         <span class="packaging-badge">${escapeHtml(getPackagingShort(product.packaging))}</span>
                         <span class="status-badge ${statusClass}">${escapeHtml(product.status)}</span>
-                        <img src="${product.image}" alt="${escapeHtml(product.name)} packaging">
+                        ${productImage(product, index)}
                     </div>
                     <div class="product-body">
                         <span class="product-category" style="background:${theme.main}">${escapeHtml(product.category)}</span>
@@ -1667,6 +1862,47 @@
         searchInput.addEventListener("input", renderProducts);
         categorySelect.addEventListener("change", renderProducts);
         statusSelect.addEventListener("change", renderProducts);
+        clearFilters.addEventListener("click", () => {
+            searchInput.value = "";
+            categorySelect.value = "all";
+            statusSelect.value = "all";
+            renderProducts();
+            searchInput.focus();
+        });
+
+        mobileMenuBtn.addEventListener("click", () => {
+            const isOpen = navLinks.classList.toggle("open");
+            mobileMenuBtn.setAttribute("aria-expanded", String(isOpen));
+            mobileMenuBtn.setAttribute("aria-label", isOpen ? "Close navigation menu" : "Open navigation menu");
+        });
+
+        navLinks.querySelectorAll("a").forEach((link) => {
+            link.addEventListener("click", () => {
+                navLinks.classList.remove("open");
+                mobileMenuBtn.setAttribute("aria-expanded", "false");
+                mobileMenuBtn.setAttribute("aria-label", "Open navigation menu");
+            });
+        });
+
+        document.getElementById("quoteForm").addEventListener("submit", (event) => {
+            event.preventDefault();
+            const form = event.currentTarget;
+            const data = new FormData(form);
+            const subject = encodeURIComponent(`Quote request from ${data.get("name") || "website"}`);
+            const body = encodeURIComponent([
+                `Name / Company: ${data.get("name") || ""}`,
+                `Phone: ${data.get("phone") || ""}`,
+                `Category: ${data.get("category") || ""}`,
+                `Quantity: ${data.get("quantity") || ""}`,
+                "",
+                "Request details:",
+                data.get("message") || ""
+            ].join("\n"));
+
+            formStatus.textContent = "Opening your email app with the quotation request...";
+            window.location.href = `mailto:sales@falconchemicals.com?subject=${subject}&body=${body}`;
+        });
+
         renderProducts();
     </script>
 </body>
