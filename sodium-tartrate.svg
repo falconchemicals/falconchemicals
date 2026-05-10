@@ -1,0 +1,20 @@
+﻿<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 360 480' width='360' height='480'>
+<defs><linearGradient id='jerryBlue' x1='0' y1='0' x2='1' y2='0'><stop offset='0%' stop-color='#1e40af'/><stop offset='55%' stop-color='#3b82f6'/><stop offset='100%' stop-color='#1e3a8a'/></linearGradient><linearGradient id='brandRed3' x1='0' y1='0' x2='1' y2='0'><stop offset='0%' stop-color='#c81e1e'/><stop offset='100%' stop-color='#981b1b'/></linearGradient><filter id='jerryShadow' x='-10%' y='-5%' width='120%' height='110%'><feDropShadow dx='0' dy='10' stdDeviation='14' flood-color='#0f172a' flood-opacity='0.2'/></filter></defs>
+<rect width='360' height='480' fill='#f1f5f9'/><ellipse cx='180' cy='435' rx='100' ry='16' fill='#0f172a' opacity='0.1'/>
+<g filter='url(#jerryShadow)'><rect x='90' y='140' width='180' height='270' rx='18' fill='url(#jerryBlue)'/><rect x='105' y='180' width='30' height='190' rx='12' fill='#1e3a8a' opacity='0.25'/><rect x='225' y='180' width='30' height='190' rx='12' fill='#1e3a8a' opacity='0.25'/><rect x='145' y='115' width='70' height='35' rx='8' fill='#2563eb' stroke='#1e40af' stroke-width='2'/><rect x='155' y='95' width='50' height='25' rx='6' fill='#d1d5db' stroke='#6b7280'/><path d='M215 140 L215 80 Q215 60 235 60 L255 60 Q275 60 275 80 L275 140' fill='none' stroke='#4b5563' stroke-width='18' stroke-linecap='round'/></g>
+<rect x='108' y='205' width='144' height='168' rx='10' fill='#fff' opacity='0.96' stroke='#e2e8f0'/><rect x='108' y='205' width='144' height='7' rx='3.5' fill='url(#brandRed3)'/>
+<g transform='translate(180 240) scale(0.95)'>
+  <circle cx='0' cy='0' r='22' fill='#101828'/>
+  <path d='M14 -12 C5 -10 -3 -5 -12 4 C-4 2 2 3 8 7 C2 8 -4 12 -12 18 C-3 16 5 12 14 4 C16 0 17 -4 18 -8 C16 -7 14 -7 12 -8 C14 -10 14 -12 14 -12Z' fill='#0f766e'/>
+  <path d='M-6 -2 L10 -2 L0 4Z' fill='#ffffff'/>
+  <circle cx='8' cy='-5' r='1.5' fill='#ffffff'/>
+  <path d='M0 10 C4 12 8 12 12 10' fill='none' stroke='#ffffff' stroke-width='1.8' stroke-linecap='round'/>
+  <path d='M-10 10 L6 10 L3 18 L-7 18Z' fill='#ffffff'/>
+  <path d='M-7 10 L-7 3 L5 3 L5 10' fill='none' stroke='#ffffff' stroke-width='1.8' stroke-linejoin='round'/>
+</g>
+<text x='180' y='278' text-anchor='middle' font-family='Inter, Arial' font-weight='900' font-size='13' fill='#101828'>FALCON CHEMICALS</text>
+<text x='180' y='306' text-anchor='middle' font-family='Inter, Arial' font-weight='900' font-size='12' fill='#1e40af'>Sodium tartrate</text>
+<text x='180' y='323' text-anchor='middle' font-family='Inter, Arial' font-weight='600' font-size='9' fill='#64748b'>Tartrate salt</text>
+<rect x='134' y='338' width='92' height='25' rx='12.5' fill='#101828'/><text x='180' y='355' text-anchor='middle' font-family='Inter, Arial' font-weight='900' font-size='12' fill='#fff'>20 LITERS</text>
+<text x='180' y='404' text-anchor='middle' font-family='Inter, Arial' font-weight='700' font-size='8' fill='#bfdbfe'>CAIRO, EGYPT</text>
+</svg>
