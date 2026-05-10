@@ -1781,6 +1781,10 @@
         }
 
         function productImage(product, index) {
+            if (product.image) {
+                return `<img src="${escapeHtml(product.image)}" alt="${escapeHtml(product.name)} product image" loading="lazy">`;
+            }
+
             const theme = themeMap[product.category] || themeMap.Other;
             const code = initials(product.name);
             const fillLevel = 74 + (index % 4) * 8;
